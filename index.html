@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <title>Capsule - Time Travel Journal</title>
+    <style>
+        body {
+            background: linear-gradient(135deg,#0b3d91 0%, #1c1c57 100%);
+            color: #f0f0f0;
+            font-family: 'Fredoka One', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .stars {
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Ensures stars stay behind the content */
+        }
+
+        .layer1 {
+            box-shadow:
+                20px 30px #ffffff,
+                50px 80px #ffffff,
+                150px 250px #ffffff,
+                250px 300px #ffffff,
+                300px 500px #ffffff,
+                400px 200px #ffffff,
+                500px 450px #ffffff;
+            animation: twinkle 3s infinite ease-in-out alternate;
+        }
+        .layer2 {
+            box-shadow: 
+                600px 400px #ffffff,
+                700px 150px #ffffff,
+                800px 300px #ffffff,
+                900px 100px #ffffff,
+                1000px 200px #ffffff,
+                1100px 450px #ffffff;
+            animation: twinkle 2s infinite ease-in-out alternate;
+        }
+        .layer3 {
+            box-shadow: 
+                1200px 50px #ffffff,
+                1300px 400px #ffffff,
+                1400px 500px #ffffff,
+                1500px 150px #ffffff,
+                1600px 250px #ffffff,
+                1700px 350px #ffffff;
+            animation: twinkle 1.5s infinite ease-in-out alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            background-color: rgba(0, 79, 189, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 100px;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #4a90e2, #9013fe);
+            color: #f0f0f0;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+
+        }
+
+        textarea, input[type="date"] {
+            font-family: 'Fredoka One', sans-serif;
+            font-size: 1em;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 80%;
+            border: 2px solid #4a90e2;
+            border-radius: 8px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
+
+        }
+        textarea:focus, input[type="date"]:focus {
+            border-color: #3a3f47;
+            background-color: #f8f8f8;
+            color: #282c34;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-family: 'Poppins' ,sans-serif;
+            font-size: 1em;
+            color: #ccccff;
+            margin-top: -10px;
+        }
+
+        h2 {
+            font-family: 'Poppins' ,sans-serif;
+            color: #ccccff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .entry button {
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .entry button:hover {
+            background-color: #ff1a1a;
+        }
+        .entry-tile {
+            background-color: #1a1a3a;
+            border: 1px solid #4a90e2;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 400px;
+            color: #f0f0f0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+        .entry-tile button {
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .entry-tile button:hover {
+            background-color: #f42828;
+        }
+
+        .stat-box {
+            background-color: rgba(0, 0, 51, 0.9);
+            border: 2px solid #4a90e2;
+            border-radius: 10px;
+            padding: 20px;
+            width: 150px;
+            color: #f0f0f0;
+            text-align: center;
+            margin: 0 auto;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+        }
+
+        .stat-box h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+        .stat-box p {
+            font-size: 24px;
+            margin: 10px 0 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars layer1"></div>
+    <div class="stars layer2"></div>
+    <div class="stars layer3"></div>
+    <div class="container">
+        <h1>Capsule: Send Your Thoughts to Space</h1>
+        <p>Write your entries, send them up, and they'll come back down when the time is right.</p>
+        <button onclick="createEntry()">New Entry</button>
+        <button onclick="viewEntries()">View Entries</button>
+        <div class="stat-box" id="timeSinceLaunch">
+            <h3>Time Since Launch</h3>
+            <p id="timeElapsed">00:00:00</p>
+        </div>      
+    </div>
+    <script>
+        function createEntry() {
+            const today = new Date().toISOString().split("T")[0];  // Today's date in 'YYYY-MM-DD'
+            document.querySelector('.container').innerHTML = `
+                <h2>Create a New Entry</h2>
+                <textarea id="entryText" placeholder="Write your thoughts here..." rows="5" cols="30"></textarea>
+                <br>
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" min="${today}">
+                
+                <div>
+                    <button onclick="setFutureDate(7)">1 Week</button>
+                    <button onclick="setFutureDate(30)">1 Month</button>
+                    <button onclick="setFutureDate(365)">1 Year</button>
+                </div>
+                <br><br>
+                <button onclick="saveEntry()">Launch Entry</button>
+                <button onclick="goBack()">Cancel</button>
+            `;
+        }
+
+        function setFutureDate(daysAhead) {
+            const futureDate = new Date();
+            futureDate.setDate(futureDate.getDate() + daysAhead);
+
+            document.getElementById("returnDate").value = futureDate.toISOString().split("T")[0];
+        }
+
+        function saveEntry() {
+            const text = document.getElementById("entryText").value;
+            const returnDate = document.getElementById("returnDate").value;
+
+            if (text && returnDate) {
+                const entries = JSON.parse(localStorage.getItem("capsuleEntries") || "[]");
+                const launchDate = new Date().toISOString();
+                entries.push({ text, returnDate, launchDate, receivedDate: null });
+                localStorage.setItem("capsuleEntries", JSON.stringify(entries));
+
+                alert("Entry launched to space! It'll come back on " + returnDate);
+                startLaunchTimer();
+                goBack();
+            } else {
+                alert("Please fill out both the entry and return date.");
+            }
+        }
+
+        function goBack() {
+            document.querySelector('.container').innerHTML = `
+                <h1>Capsule: Send Your Thoughts to Space</h1>
+                <p>Write your entries, send them up, and they'll come back down when the time is right.</p>
+                <button onclick="createEntry()">New Entry</button>
+                <button onclick="viewEntries()">View Entries</button>
+                
+                <div class="stat-box" id="timeSinceLaunch">
+                    <h3>Time Since Launch</h3>
+                    <p id="timeElapsed">00:00:00</p>
+                </div>
+            `;
+
+            startLaunchTimer();
+        }
+
+        function viewEntries() {
+            const entries = JSON.parse(localStorage.getItem("capsuleEntries") || "[]");
+            const today = new Date().toISOString().split("T")[0];
+
+            const landedEntries = entries.filter(entry => entry.returnDate <= today);
+
+            if (landedEntries.length > 0) {
+                document.querySelector('.container').innerHTML = `
+                    <h2>Landed Entries</h2>
+                    <div id="entries">
+                        ${landedEntries.map((entry, index) => `
+                            <div class="entry-tile" id="entry-${index}">
+                                ${
+                                    entry.receivedDate 
+                                    ? `
+                                        <p>${entry.text}</p>
+                                        <small>Launched on: ${new Date(entry.launchDate).toLocaleString()}</small><br>
+                                        <small>Received on: ${new Date(entry.receivedDate).toLocaleString()}</small><br>
+                                        <button onclick="deleteEntry(${index})">Delete</button>
+                                      `
+                                    : `
+                                        <button onclick="openEntry(${index})">Open</button>
+                                        <small>Return Date: ${entry.returnDate}</small>
+                                      `
+                                }
+                            </div>
+                        `).join('')}
+                    </div>
+                    <button onclick="goBack()">Back to Main</button>
+                `;
+            } else {
+                document.querySelector('.container').innerHTML = `
+                    <h2>No entries have landed yet!</h2>
+                    <button onclick="goBack()">Back to Main</button>
+                `;
+            }
+        }
+
+        function openEntry(index) {
+            let entries = JSON.parse(localStorage.getItem("capsuleEntries") || "[]");
+            const entry = entries[index];
+
+            if (!entry.receivedDate) {
+                entry.receivedDate = new Date().toISOString();
+                localStorage.setItem("capsuleEntries", JSON.stringify(entries));
+            }
+
+            document.getElementById(`entry-${index}`).innerHTML = `
+                <p>${entry.text}</p>
+                <small>Launched on: ${new Date(entry.launchDate).toLocaleString()}</small><br>
+                <small>Received on: ${new Date(entry.receivedDate).toLocaleString()}</small><br>
+                <button onclick="deleteEntry(${index})">Delete</button>
+            `;
+        }
+
+        function deleteEntry(index) {
+            let entries = JSON.parse(localStorage.getItem("capsuleEntries") || "[]");
+
+            entries.splice(index, 1);
+            localStorage.setItem("capsuleEntries", JSON.stringify(entries));
+            
+            viewEntries();
+        }
+
+        let timerInterval;
+
+        function startLaunchTimer() {
+            const entries = JSON.parse(localStorage.getItem("capsuleEntries") || "[]");
+
+            if (entries.length === 0) {
+                document.getElementById("timeElapsed").textContent = "00:00:00";
+                return;
+            }
+
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+
+            const latestEntry = entries.reduce((latest, entry) => {
+                return new Date(entry.launchDate) > new Date(latest.launchDate) ? entry : latest;
+            });
+
+            const startTime = new Date(latestEntry.launchDate);
+
+            function updateTimer() {
+                const now = new Date();
+                const elapsedTime = new Date(now - startTime);
+
+                const hours = String(elapsedTime.getUTCHours()).padStart(2, '0');
+                const minutes = String(elapsedTime.getUTCMinutes()).padStart(2, '0');
+                const seconds = String(elapsedTime.getUTCSeconds()).padStart(2, '0');
+
+                document.getElementById("timeElapsed").textContent = `${hours}:${minutes}:${seconds}`;
+            }
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+    </script>
+</body>
+</html>
