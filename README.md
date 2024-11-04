@@ -1,4 +1,5 @@
 # Capsule - Time Travel Journal
+![image](https://github.com/user-attachments/assets/447e46b1-d417-4eff-a2f4-5b43bb3a8115)
 
 **Capsule** is a creative time travel journal app where users can write journal entries, "send" them into the future, and view them once they "return." Designed with a cosmic theme, the app encourages users to reflect on their thoughts and experiences, sending them off to be rediscovered at a later date.
 
