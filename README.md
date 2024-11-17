@@ -21,4 +21,4 @@
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/capsule-time-travel-journal.git
+   git clone https://github.com/Orion-North/capsule-time-travel-journal.git
